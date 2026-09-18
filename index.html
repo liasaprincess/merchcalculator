@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260918-05-13efa67","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/83d6dfdadcd4750a.telemetry_sdk.js" integrity="sha512-XS4Dvzp6vbagZS9vFErihvr8aO3S0tH78KWUefn06fmL4WYqryBtZj/IOLITYj7dFA4gPVvPg1W/JB1DK3uLNQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenPayments Calculator</title>
+  <style>
+    :root {
+      --rose-ink: #7d4771;
+      --mauve-ink: #855585;
+      --muted: #9c7295;
+      --pink: #f6bddc;
+      --orchid: #dc9ee2;
+      --lavender: #cfb8f1;
+      --line: rgba(174, 105, 163, .28);
+      --glass: rgba(255, 244, 253, .58);
+      --glass-deep: rgba(252, 227, 246, .68);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      width: 100%;
+      margin: 0;
+      color: var(--rose-ink);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .zen-root {
+      width: 100%;
+      min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 9% 16%, rgba(255, 230, 243, .92), transparent 30rem),
+        radial-gradient(circle at 90% 82%, rgba(211, 193, 248, .88), transparent 32rem),
+        linear-gradient(130deg, #f9ddec 0%, #efd5f0 48%, #ded7f6 100%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(5px);
+      pointer-events: none;
+      opacity: .7;
+    }
+
+    .orb-one {
+      width: 20rem;
+      height: 20rem;
+      top: 30%;
+      left: -9rem;
+      background: rgba(244, 170, 210, .32);
+    }
+
+    .orb-two {
+      width: 24rem;
+      height: 24rem;
+      top: -8rem;
+      right: -10rem;
+      background: rgba(193, 165, 237, .36);
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 42px rgba(177, 109, 166, .18), inset 0 1px 0 rgba(255, 255, 255, .78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .title-font {
+      font-family: "ATTERON", "Fraunces", serif;
+    }
+
+    .amount-input {
+      width: 100%;
+      border: 1px solid rgba(176, 104, 166, .42);
+      border-radius: 1rem;
+      background: rgba(255, 250, 255, .78);
+      color: var(--rose-ink);
+      outline: none;
+      font-size: clamp(1.55rem, 4vw, 2.35rem);
+      font-weight: 700;
+      padding: 1.08rem 1rem 1.08rem 3rem;
+      letter-spacing: -.04em;
+      transition: border-color .18s, box-shadow .18s, background .18s;
+    }
+
+    .amount-input:focus {
+      border-color: #d481ce;
+      background: #fffaff;
+      box-shadow: 0 0 0 4px rgba(222, 151, 218, .28);
+    }
+
+    .amount-input::placeholder { color: #bd91b3; }
+
+    .amount-input.invalid {
+      border-color: #dc839f;
+      box-shadow: 0 0 0 4px rgba(238, 161, 183, .28);
+    }
+
+    .section-rule { border-top: 1px solid rgba(176, 104, 166, .21); }
+
+    .fee-row {
+      border: 1px solid rgba(186, 125, 180, .2);
+      background: rgba(255, 251, 255, .45);
+      border-radius: .9rem;
+    }
+
+    .readonly-value {
+      color: #8d5789;
+      background: rgba(243, 218, 241, .72);
+      border: 1px solid rgba(189, 122, 181, .2);
+      border-radius: .65rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .result-row { border-bottom: 1px solid rgba(176, 104, 166, .18); }
+
+    .result-value { font-variant-numeric: tabular-nums; }
+
+    .net-card {
+      background: linear-gradient(135deg, rgba(244, 185, 222, .72), rgba(216, 184, 246, .72));
+      border: 1px solid rgba(204, 122, 192, .42);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.82), 0 12px 30px rgba(191, 118, 183, .16);
+    }
+
+    .payout-card {
+      background: linear-gradient(135deg, rgba(255, 215, 238, .86), rgba(225, 205, 255, .84));
+      border: 1px solid rgba(195, 131, 198, .48);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.92), 0 16px 36px rgba(184, 122, 184, .18);
+    }
+
+    .deposit-amount {
+      color: #bd5ec9;
+      text-shadow: 0 2px 16px rgba(253, 225, 255, .95);
+    }
+
+    .fade-in { animation: rise .7s ease both; }
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .2s; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid rgba(199, 112, 194, .65);
+      outline-offset: 3px;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/8de366929c5f3b48.data_sdk.js" type="text/javascript" integrity="sha512-TyQ8k8cZj66xe/aENmn6RyZpdOFZXbAo5+KBG3PeFM+Q4qMTHU8xAqmq4ADClNfPrstgQYV6OzZHwLTnElzB2g=="></script>
+  <script src="/_sdk/0ddbbee1c66b1212.editing_sdk.js" type="text/javascript" integrity="sha512-HQn5LM1yruQSbY78ATUril6QeOJ9xj7KqO64ltLtb4vBwI5Qv3/tloFFOndBPZTNZoeV5xKzuth5y6FTi9crsg=="></script>
+  <script src="/_sdk/765e1fea0cec97ce.resizing_sdk.js" type="text/javascript" integrity="sha512-IRTJnqww0+HQ5V/LlWEQrlD5SrYHaVvaeVoNe8HYQXoaguzUGheSd9+n9s6WOgaTcEH0g37DuINHZ9aqfzWjlw=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: linear-gradient(130deg, rgb(249, 221, 236), rgb(239, 213, 240), rgb(222, 215, 246));">
+  <div class="zen-root">
+   <div class="orb orb-one"></div>
+   <div class="orb orb-two"></div>
+   <main class="relative z-10 mx-auto w-full max-w-7xl px-4 py-7 sm:px-6 sm:py-12">
+    <header data-template-id="calculator-header" class="canva-header glass fade-in rounded-3xl p-6 sm:p-8" style="background: linear-gradient(135deg, rgba(255, 239, 249, 0.78), rgba(238, 222, 250, 0.78));">
+     <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+       <div class="mb-3 flex items-center gap-2 text-[#b9639f]"><i data-lucide="sparkles" class="h-4 w-4" aria-hidden="true"></i> <span data-template-id="eyebrow-text" class="canva-text text-xs font-bold uppercase tracking-[.2em]" style="color: rgb(185, 99, 159); font-weight: 700; font-style: normal; font-size: 12px; letter-spacing: 0.12rem;">Merchant tools</span>
+       </div>
+       <h1 data-template-id="page-title" class="canva-text title-font leading-none" style="color: rgb(125, 71, 113); font-weight: 700; font-style: normal; font-size: 32px;">Merchant Calculator</h1>
+      </div>
+      <p data-template-id="pricing-note" class="canva-text max-w-md text-sm leading-relaxed sm:text-right" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.5;">Statement-reference defaults only. Actual ZenPayments pricing and fee applicability may vary by merchant agreement.</p>
+     </div>
+    </header>
+    <section class="mt-5 grid gap-5 xl:grid-cols-[1.16fr_.84fr]">
+     <div class="space-y-5">
+      <section data-template-id="entry-panel" class="canva-panel glass fade-in delay-1 rounded-3xl p-5 sm:p-7" aria-labelledby="amount-label" style="background: linear-gradient(130deg, rgba(255, 240, 249, 0.74), rgba(240, 225, 250, 0.74));"><label data-template-id="amount-label" for="processing-volume" class="canva-text block text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Gross Processing Amount</label>
+       <div class="relative mt-3"><span class="absolute left-4 top-1/2 -translate-y-1/2 text-xl font-semibold text-[#b964a3]" aria-hidden="true">$</span> <input id="processing-volume" class="canva-input amount-input" type="text" inputmode="decimal" autocomplete="off" aria-describedby="amount-help amount-error">
+       </div>
+       <p data-template-id="amount-help" id="amount-help" class="canva-text mt-3 text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Enter the gross processing amount for the statement period you want to estimate.</p>
+       <p id="amount-error" class="mt-2 hidden text-sm font-semibold text-[#bd5b7f]" role="alert"></p>
+      </section>
+      <section data-template-id="fees-panel" class="canva-panel glass fade-in delay-2 rounded-3xl p-5 sm:p-7" aria-labelledby="fees-title" style="background: linear-gradient(135deg, rgba(255, 242, 251, 0.66), rgba(235, 224, 249, 0.7));">
+       <div class="flex items-start justify-between gap-4">
+        <div>
+         <h2 data-template-id="fees-title" class="canva-text title-font font-bold" style="color: rgb(125, 71, 113); font-weight: 700; font-style: normal; font-size: 24px;">ZenPayments Fee Breakdown</h2>
+         <p data-template-id="fees-subtitle" class="canva-text mt-1 text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Read-only statement-reference defaults used for this estimate.</p>
+        </div><i data-lucide="receipt-text" class="h-5 w-5 shrink-0 text-[#bf6da8]" aria-hidden="true"></i>
+       </div>
+       <div class="mt-6">
+        <h3 data-template-id="base-section-title" class="canva-text title-font text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Base discount fee</h3>
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+         <div class="fee-row p-4">
+          <p data-template-id="discount-rate-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Base discounted fee</p>
+          <p data-template-id="discount-rate-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">3.95% of gross processing amount</p>
+         </div>
+         <div class="fee-row p-4">
+          <p data-template-id="minimum-discount-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Minimum discount fee</p>
+          <p data-template-id="minimum-discount-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$45.00 when base discount fee is lower</p>
+         </div>
+        </div>
+       </div>
+       <div class="section-rule mt-6 pt-6">
+        <h3 data-template-id="authorization-section-title" class="canva-text title-font text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Authorization fees</h3>
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+         <div class="fee-row p-4">
+          <p data-template-id="authorization-rate-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Authorization fee</p>
+          <p data-template-id="authorization-rate-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$0.25 per authorization</p>
+         </div>
+         <div class="fee-row p-4">
+          <p data-template-id="authorization-count-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Statement-reference authorizations</p>
+          <p data-template-id="authorization-count-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">23 authorizations</p>
+         </div>
+        </div>
+       </div>
+       <div class="section-rule mt-6 pt-6">
+        <h3 data-template-id="program-section-title" class="canva-text title-font text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Interchange / program fees</h3>
+        <div class="mt-3 fee-row p-4">
+         <p data-template-id="program-default-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Non-qualified surcharge reference</p>
+         <p data-template-id="program-default-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$4.70 statement-reference amount</p>
+        </div>
+       </div>
+       <div class="section-rule mt-6 pt-6">
+        <h3 data-template-id="transaction-section-title" class="canva-text title-font text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Flat transaction fees</h3>
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+         <div class="fee-row p-4">
+          <p data-template-id="batch-rate-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Batch fee</p>
+          <p data-template-id="batch-rate-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$0.35 statement-reference amount</p>
+         </div>
+         <div class="fee-row p-4">
+          <p data-template-id="avs-rate-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">AVS transaction fee</p>
+          <p data-template-id="avs-rate-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$2.20 statement-reference amount</p>
+         </div>
+        </div>
+       </div>
+       <div class="section-rule mt-6 pt-6">
+        <h3 data-template-id="brand-section-title" class="canva-text title-font text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Card brand fees</h3>
+        <p data-template-id="brand-section-help" class="canva-text mt-1 text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Combined card brand fee defaults from the statement reference.</p>
+        <div class="mt-3 fee-row p-4">
+         <p data-template-id="brand-default-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">Card brand fee total</p>
+         <p data-template-id="brand-default-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$3.27 statement-reference amount</p>
+        </div>
+       </div>
+       <div class="section-rule mt-6 pt-6">
+        <h3 data-template-id="other-section-title" class="canva-text title-font text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Other fees</h3>
+        <p data-template-id="other-section-help" class="canva-text mt-1 text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Recurring statement fees and related activity fees used in this estimate.</p>
+        <div class="mt-3 fee-row p-4">
+         <p data-template-id="other-default-label" class="canva-text text-sm font-semibold" style="color: rgb(133, 85, 133); font-weight: 600; font-style: normal; font-size: 14px;">IRS, monthly, PCI, and AVS fees</p>
+         <p data-template-id="other-default-value" class="canva-text readonly-value mt-2 px-3 py-2 text-sm font-bold" style="color: rgb(133, 85, 133); font-weight: 700; font-style: normal; font-size: 14px;">$59.10 statement-reference amount</p>
+        </div>
+       </div>
+      </section>
+     </div>
+     <aside data-template-id="results-panel" class="canva-panel glass fade-in delay-2 h-fit rounded-3xl p-5 sm:p-7" aria-labelledby="results-title" style="background: linear-gradient(135deg, rgba(255, 239, 249, 0.8), rgba(235, 223, 250, 0.8));">
+      <div class="flex items-center justify-between gap-4">
+       <div>
+        <h2 data-template-id="results-title" class="canva-text title-font font-bold" style="color: rgb(125, 71, 113); font-weight: 700; font-style: normal; font-size: 24px;">Processing Fee Estimate</h2>
+        <p data-template-id="results-subtitle" class="canva-text mt-1 text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">A detailed estimate of applicable processing deductions.</p>
+       </div>
+       <div class="flex h-10 w-10 items-center justify-center rounded-full border border-[#d69bcf] bg-[#fae8f7] text-[#b65eaa]"><i data-lucide="calculator" class="h-5 w-5" aria-hidden="true"></i>
+       </div>
+      </div>
+      <dl class="mt-5">
+       <div class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="base-fee-result-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Base discount fee</dt>
+        <dd id="base-fee-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div id="minimum-adjustment-row" class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="minimum-adjustment-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Minimum discount adjustment</dt>
+        <dd id="minimum-adjustment-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="authorization-result-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Authorization fees</dt>
+        <dd id="authorization-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="program-result-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Interchange / program fees</dt>
+        <dd id="program-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="transaction-result-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Flat transaction fees</dt>
+        <dd id="transaction-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="brand-result-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Card brand fees</dt>
+        <dd id="brand-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div class="result-row flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="other-result-label" class="canva-text text-sm" style="color: rgb(148, 107, 143); font-weight: 400; font-style: normal; font-size: 14px;">Other fees</dt>
+        <dd id="other-result" class="result-value font-semibold">
+         $0.00
+        </dd>
+       </div>
+       <div class="flex items-center justify-between gap-4 py-3">
+        <dt data-template-id="total-fees-label" class="canva-text text-sm font-bold" style="color: rgb(125, 71, 113); font-weight: 700; font-style: normal; font-size: 14px;">Total fees</dt>
+        <dd id="total-fees-result" class="result-value font-bold">
+         $0.00
+        </dd>
+       </div>
+      </dl>
+      <div data-template-id="net-card" class="canva-card net-card mt-5 rounded-2xl p-5" style="background: linear-gradient(135deg, rgba(244, 185, 222, 0.72), rgba(216, 184, 246, 0.72));">
+       <p data-template-id="net-amount-label" class="canva-text text-sm font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Estimated net deposit</p><output id="net-deposit-result" class="deposit-amount result-value mt-2 block text-4xl font-bold tracking-tight sm:text-5xl">$0.00</output>
+      </div>
+      <section data-template-id="payout-panel" class="canva-panel payout-card mt-5 rounded-2xl p-5" aria-labelledby="payout-title" style="background: linear-gradient(135deg, rgba(255, 215, 238, 0.86), rgba(225, 205, 255, 0.84));">
+       <div class="flex items-start justify-between gap-3">
+        <div>
+         <h2 data-template-id="payout-title" class="canva-text title-font font-bold" style="color: rgb(125, 71, 113); font-weight: 700; font-style: normal; font-size: 24px;">Estimated Net Deposit After Processing Fees</h2>
+         <p data-template-id="payout-formula" class="canva-text mt-1 text-sm leading-relaxed" style="color: rgb(133, 85, 133); font-weight: 400; font-style: normal; font-size: 14px;">Gross amount minus total applicable processing fees equals the estimated merchant deposit.</p>
+        </div><i data-lucide="wallet-cards" class="h-5 w-5 shrink-0 text-[#b963a5]" aria-hidden="true"></i>
+       </div>
+       <dl class="mt-4 space-y-3 text-sm">
+        <div class="flex items-center justify-between gap-4">
+         <dt data-template-id="gross-processing-label" class="canva-text" style="color: rgb(133, 85, 133); font-weight: 400; font-style: normal; font-size: 14px;">Gross processing amount</dt>
+         <dd id="payout-gross-result" class="result-value font-semibold">
+          $0.00
+         </dd>
+        </div>
+        <div class="flex items-center justify-between gap-4">
+         <dt data-template-id="payout-fees-label" class="canva-text" style="color: rgb(133, 85, 133); font-weight: 400; font-style: normal; font-size: 14px;">Total applicable processing fees deducted</dt>
+         <dd id="payout-fees-result" class="result-value font-semibold">
+          $0.00
+         </dd>
+        </div>
+        <div id="payout-minimum-row" class="flex items-center justify-between gap-4">
+         <dt data-template-id="payout-minimum-label" class="canva-text" style="color: rgb(133, 85, 133); font-weight: 400; font-style: normal; font-size: 14px;">Minimum discount fee adjustment</dt>
+         <dd id="payout-minimum-result" class="result-value font-semibold">
+          $0.00
+         </dd>
+        </div>
+       </dl>
+       <div class="mt-5 border-t border-[#d79ece] pt-4">
+        <p data-template-id="initial-payout-label" class="canva-text text-xs font-bold uppercase tracking-[.12em]" style="color: rgb(152, 84, 135); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">Initial Payout Deposit</p><output id="initial-payout-result" class="deposit-amount result-value mt-1 block text-4xl font-bold tracking-tight sm:text-5xl">$0.00</output>
+       </div>
+      </section>
+      <div data-template-id="formula-card" class="canva-card mt-5 rounded-2xl p-4" style="background: rgba(255, 244, 253, 0.7);">
+       <div class="flex gap-3"><i data-lucide="info" class="mt-0.5 h-4 w-4 shrink-0 text-[#bd62a5]" aria-hidden="true"></i>
+        <p data-template-id="formula-text" class="canva-text text-sm leading-relaxed" style="color: rgb(133, 85, 133); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.5;">This estimate subtracts applicable processing fees from the gross amount. It is not a ZenPayments-to-bank transfer fee.</p>
+       </div>
+      </div>
+      <div class="mt-5 flex justify-end"><button data-template-id="reset-button" id="reset-button" class="canva-button inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-bold transition hover:bg-[#f6d9ef]" type="button" style="background: rgb(249, 227, 243); color: rgb(141, 76, 130); font-weight: 700;"> <i data-lucide="rotate-ccw" class="h-4 w-4" aria-hidden="true"></i> <span data-template-id="reset-button-text" class="canva-text" style="color: rgb(141, 76, 130); font-weight: 700; font-style: normal; font-size: 14px;">Clear amount</span> </button>
+      </div>
+     </aside>
+    </section>
+   </main>
+  </div>
+  <script>
+    const currency = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
+
+    const volumeInput = document.getElementById("processing-volume");
+    const amountError = document.getElementById("amount-error");
+
+    const feeDefaults = {
+      discountRate: 3.95,
+      minimumDiscount: 45.00,
+      authorizationRate: 0.25,
+      authorizationCount: 23,
+      programFee: 4.70,
+      batchFee: 0.35,
+      avsFee: 2.20,
+      brandFee: 3.27,
+      otherFee: 56.90
+    };
+
+    const byId = (id) => document.getElementById(id);
+    const money = (value) => currency.format(Math.max(0, Math.round((value + Number.EPSILON) * 100) / 100));
+
+    function rawVolume() {
+      return Number.parseFloat(volumeInput.value.replace(/[$,\s]/g, ""));
+    }
+
+    function calculate() {
+      const amount = rawVolume();
+      const isBlank = volumeInput.value.trim() === "";
+      const invalid = !Number.isFinite(amount) || amount <= 0;
+
+      volumeInput.classList.toggle("invalid", !isBlank && invalid);
+      amountError.classList.toggle("hidden", isBlank || !invalid);
+
+      if (!isBlank && !Number.isFinite(amount)) {
+        amountError.textContent = "Enter a valid gross processing amount.";
+      } else if (!isBlank && amount === 0) {
+        amountError.textContent = "Gross processing amount must be greater than zero.";
+      } else if (!isBlank && amount < 0) {
+        amountError.textContent = "Gross processing amount cannot be negative.";
+      } else {
+        amountError.textContent = "";
+      }
+
+      const safeAmount = invalid ? 0 : amount;
+      const baseFee = safeAmount * feeDefaults.discountRate / 100;
+      const minimumAdjustment = Math.max(0, feeDefaults.minimumDiscount - baseFee);
+      const authorization = feeDefaults.authorizationRate * feeDefaults.authorizationCount;
+      const program = feeDefaults.programFee;
+      const transaction = feeDefaults.batchFee;
+      const brand = feeDefaults.brandFee;
+      const other = feeDefaults.otherFee + feeDefaults.avsFee;
+      const total = baseFee + minimumAdjustment + authorization + program + transaction + brand + other;
+      const netDeposit = Math.max(0, safeAmount - total);
+
+      byId("base-fee-result").textContent = money(baseFee);
+      byId("minimum-adjustment-result").textContent = money(minimumAdjustment);
+      byId("authorization-result").textContent = money(authorization);
+      byId("program-result").textContent = money(program);
+      byId("transaction-result").textContent = money(transaction);
+      byId("brand-result").textContent = money(brand);
+      byId("other-result").textContent = money(other);
+      byId("total-fees-result").textContent = money(total);
+      byId("net-deposit-result").textContent = money(netDeposit);
+      byId("payout-gross-result").textContent = money(safeAmount);
+      byId("payout-fees-result").textContent = money(total);
+      byId("payout-minimum-result").textContent = money(minimumAdjustment);
+      byId("initial-payout-result").textContent = money(netDeposit);
+
+      byId("minimum-adjustment-row").classList.toggle("hidden", minimumAdjustment === 0);
+      byId("payout-minimum-row").classList.toggle("hidden", minimumAdjustment === 0);
+    }
+
+    volumeInput.addEventListener("input", calculate);
+
+    volumeInput.addEventListener("blur", () => {
+      const value = rawVolume();
+      if (Number.isFinite(value) && value > 0) {
+        volumeInput.value = currency.format(value);
+      }
+      calculate();
+    });
+
+    byId("reset-button").addEventListener("click", () => {
+      volumeInput.value = "";
+      calculate();
+      volumeInput.focus();
+    });
+
+    lucide.createIcons();
+    calculate();
+  </script>
+ 
+</body></html>
